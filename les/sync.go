@@ -79,7 +79,7 @@ func (pm *ProtocolManager) synchronise(peer *peer) {
 		return
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 	updateChtFromPeer(pm, peer, ctx)
 	pm.blockchain.(*light.LightChain).SyncCht(ctx)
